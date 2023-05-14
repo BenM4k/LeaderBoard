@@ -30,9 +30,10 @@ jobs:
         run: |
           npm install --save-dev hint@7.x
           [ -f .hintrc ] || wget https://raw.githubusercontent.com/microverseinc/linters-config/master/html-css-js/.hintrc
-          npx hint --ignore=index.html .
       - name: Webhint Report
-        run: npx hint .
+        run: |
+          npx hint .
+          npx hint --ignore=index.html .
   stylelint:
     name: Stylelint
     runs-on: ubuntu-22.04
