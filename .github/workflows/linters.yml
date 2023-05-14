@@ -33,7 +33,6 @@ jobs:
       - name: Webhint Report
         run: |
           npx hint .
-          npx hint --exclude=dist/index.html .
   stylelint:
     name: Stylelint
     runs-on: ubuntu-22.04
