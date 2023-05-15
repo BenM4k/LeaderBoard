@@ -34,7 +34,6 @@ main {
 
 .scores {
   margin-top: 20px;
-  margin-left: 60px;
   display: flex;
   gap: 40px;
   width: 100%;
@@ -61,11 +60,33 @@ main {
   cursor: pointer;
 }
 
+.refresh:hover {
+  background: black;
+  color: white;
+}
+
 .scores__table {
   margin-top: 25px;
+  padding: 10px;
   height: 250px;
-  border: 3px solid black;
+  /* border: 3px solid black; */
+  border-radius: 10px;
+  box-shadow:
+  rgb(187 187 187 / 42%) 0px 0px 8px 9px,
+          inset 0 -8px 16px 0 #bdbdc1;
+  overflow: hidden;
   overflow-y: scroll;
+}
+
+.scores__table::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  width: 2px;
+}
+
+.scores__table::-webkit-scrollbar {
+  /* background-color: #555; */
+  display: none;
 }
 
 .score__list {
@@ -115,6 +136,11 @@ main {
   border: 2px solid black;
   box-shadow: 3px 3px 0 0 black;
   cursor: pointer;
+}
+
+.submit:hover {
+  background: black;
+  color: white;
 }
 
 .api_result {
