@@ -6,7 +6,7 @@ export const getData = async () => {
   } catch (error) {
     return error;
   }
-}
+};
 
 export const postData = async (data, message) => {
   fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/8wPjCkmYYD4CyXa3rN0f/scores/', {
@@ -22,4 +22,4 @@ export const postData = async (data, message) => {
       message.innerText = json.result;
     })
     .then((result) => result);
-}
+};
