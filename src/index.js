@@ -1,4 +1,4 @@
-// import './index.css';
+import './index.css';
 import display from './modules/display.js';
 import { getData, postData } from './modules/api.js';
 
