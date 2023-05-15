@@ -1,4 +1,4 @@
-export async function getData() {
+export const getData = async () => {
   try {
     const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/8wPjCkmYYD4CyXa3rN0f/scores/');
     const data = await response.json();
@@ -8,7 +8,7 @@ export async function getData() {
   }
 }
 
-export function postData(data, message) {
+export const postData = async (data, message) => {
   fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/8wPjCkmYYD4CyXa3rN0f/scores/', {
     method: 'POST',
     body: JSON.stringify(data),
