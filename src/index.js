@@ -2,56 +2,39 @@
 import display from './modules/display.js';
 import { getData, postData } from './modules/api.js';
 
-const persons = [
-  {
-    name: 'John',
-    score: '100',
-  },
-  {
-    name: 'Mark',
-    score: '20',
-  },
-  {
-    name: 'Doe',
-    score: '30',
-  },
-  {
-    name: 'Jim',
-    score: '40',
-  },
-  {
-    name: 'Syd',
-    score: '50',
-  },
-  {
-    name: 'Pat',
-    score: '60',
-  },
-];
-
 const name = document.querySelector('.name');
 const score = document.querySelector('.score');
 const refresh = document.querySelector('.refresh');
 const submit = document.querySelector('.submit');
 const scoreList = document.querySelector('.scores__table');
+const result = document.querySelector('.api_result');
 
-display(persons, scoreList);
+getData().then((data) => {
+  data.result.forEach((data) => {
+    display(data, scoreList);
+  });
+});
 
-submit.addEventListener('click', () =>{
-  if(name.value !== "" && name.value !== "") {
+submit.addEventListener('click', () => {
+  if (name.value !== '' && name.value !== '') {
     const person = {
       user: name.value,
       score: score.value,
-    }
-    console.log(person);
-    postData(person);
+    };
+    postData(person, result);
     name.value = '';
     score.value = '';
+  } else {
+    result.style.display = 'block';
+    result.innerText = 'Invalid Inputs';
   }
-})
+});
 
 refresh.addEventListener('click', async () => {
-  const persons = await getData();
-  console.log(persons);
-  // display(persons, scoreList);
-})
+  scoreList.innerHTML = '';
+  getData().then((data) => {
+    data.result.forEach((data) => {
+      display(data, scoreList);
+    });
+  });
+});
