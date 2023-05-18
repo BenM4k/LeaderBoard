@@ -92,7 +92,8 @@ Clone this repository to your desired folder:
 ### Install
 
 Install this project with:
-- npm install
+- npm install webpack
+- npm install webpack-cli --save-dev
 
 <!--
 Example command:
